@@ -1,0 +1,15 @@
+node_modules/
+work/
+dist/
+
+# tests / fixtures（按实际 src 路径精确排除）
+src/**/test/
+src/**/test/**
+src/**/workdir/
+src/**/workdir/**
+
+# local/editor artifacts
+.cursor/
+
+# 不发布实验入口
+src/main/

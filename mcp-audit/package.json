@@ -1,16 +1,39 @@
 {
-  "name": "mcp-audit",
-  "version": "1.0.0",
-  "description": "",
+  "name": "gjq-audit",
+  "version": "1.0.12",
+  "description": "Audit npm dependency vulnerabilities for local or remote projects.",
   "main": "index.js",
   "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "bin/cli.js",
+    "README.md",
+    "src/**/*.js",
+    "src/render/template/*.ejs",
+    "!src/**/test/**",
+    "!src/main/**",
+    "package.json"
+  ],
   "bin": {
+    "gjq-audit": "bin/cli.js",
     "mcp-audit": "bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests configured\"",
+    "cli": "node ./bin/cli.js",
+    "mcp": "node ./bin/cli.js --mcp",
+    "prepublishOnly": "npm pack --dry-run"
   },
-  "keywords": [],
+  "keywords": [
+    "audit",
+    "security",
+    "mcp",
+    "cli",
+    "npx"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

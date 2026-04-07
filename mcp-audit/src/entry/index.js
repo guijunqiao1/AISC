@@ -12,17 +12,24 @@ import fs from 'fs';
  */
 export async function auditPackage(projectRoot, savePath) {
   // 1. 创建工作目录
+  console.log('[mcp-audit] create work dir...');
   const workDir = await createWorkDir();
   // 2. 解析项目，向工作目录添加pacakge.json
+  console.log('[mcp-audit] parse project/package.json...');
   const packageJson = await parseProject(projectRoot);
   // 3. 生成lock文件
+  console.log('[mcp-audit] generate lock (npm install --package-lock-only)...');
   await generateLock(workDir, packageJson);
   // 4. 对工作目录进行审计
+  console.log('[mcp-audit] start audit...');
   const auditResult = await audit(workDir, packageJson);
   // 5. 渲染审计结果
+  console.log('[mcp-audit] render markdown...');
   const renderedResult = await render(auditResult, packageJson);
   // 6. 删除工作目录
+  console.log('[mcp-audit] cleanup work dir...');
   await deleteWorkDir(workDir);
   // 7. 将结果保存到指定路径
+  console.log('[mcp-audit] write file...');
   await fs.promises.writeFile(savePath, renderedResult);
 }
