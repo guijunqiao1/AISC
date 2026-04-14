@@ -148,5 +148,5 @@ gjq-audit -p "C:\path\to\your-project" -s "C:\path\to\your-project\security-audi
 
 ## 许可证
 
-ISC
+MIT
 
