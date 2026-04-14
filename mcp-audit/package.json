@@ -1,6 +1,6 @@
 {
   "name": "gjq-audit",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Audit npm dependency vulnerabilities for local or remote projects.",
   "main": "index.js",
   "type": "module",
